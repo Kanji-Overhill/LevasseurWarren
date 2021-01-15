@@ -1,0 +1,26 @@
+.areas-1{
+	padding: 30px 0;
+}
+.areas-1 .content-area{
+	border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23);
+    background-color: #FFFFFF;
+    overflow: hidden;
+    min-height: 100%;
+}
+.areas-1 .content-area img{
+	margin-bottom: 1rem;
+}
+.areas-1 .content-area h2{
+	font-size: 1.5rem;
+	color: #3472F7;
+	text-transform: uppercase;
+}
+.areas-1 .content-area .description-area{
+	padding: 1rem;
+}
+.areas-1 .content-area .description-area ul{
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}

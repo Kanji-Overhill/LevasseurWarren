@@ -1,0 +1,76 @@
+.button-group{
+	text-align: center;
+	margin-bottom: 5rem;
+	margin-top: 2rem;
+}
+.button-group button{
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	border-bottom: 2px solid transparent;
+}
+.button-group button.active{
+	border-bottom: 2px solid #0077b7;
+	color: #0077b7;
+}
+.thumb-info-wrapper{
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 1rem;
+}
+.thumb-info-title {
+    transition: all 0.3s;
+    background: rgba(33, 37, 41, 0.8);
+    color: #FFF;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: -.05em;
+    position: absolute;
+    z-index: 2;
+    max-width: 90%;
+    font-size: 17px;
+    padding: 13px 21px;
+    bottom: 13%;
+}
+.thumb-info-type {
+    background-color: #CCC;
+    border-radius: 2px;
+    display: inline-block;
+    float: left;
+    font-size: 0.6em;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 8px -2px -15px 0px;
+    padding: 2px 12px;
+    text-transform: uppercase;
+    z-index: 2;
+    line-height: 2.3;
+}
+.thumb-info-wrapper img{
+	transition: all .3s;
+    width: 100%;
+}
+.thumb-info-wrapper:hover img {
+    transform: scale(1.1, 1.1);
+}
+.container-member p{
+	margin-bottom: 0;
+	text-align: center;
+	font-size: .8rem;
+}
+.container-member .social-media{
+	padding-bottom: 1rem;
+	text-align: left;
+}
+.container-member .social-media a{
+	    font-size: 1.3rem;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    color: #fff;
+    background: #0077b7;
+    display: inline-block;
+    border-radius: 100%;
+    padding: 5px;
+    margin-right: 10px;
+}

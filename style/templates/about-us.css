@@ -1,0 +1,23 @@
+.about-us-1{
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+.about-us-1 p{
+	color: #333;
+}
+.about-us-2 p{
+	color: #333;
+}
+.about-us-2 h3{
+	color: #3472F7;
+}
+.about-us-3{
+	padding-top: 40px;
+	padding-bottom: 8px;
+}
+.about-us-3 .col-md-4{
+	margin-bottom: 2rem;
+}
+.about-us-3 .col-md-4 .img-fluid{
+	max-width: 250px
+}
