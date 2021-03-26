@@ -28,9 +28,6 @@ add_action('wp_enqueue_scripts', 'load_styles');
 function load_homepage_styles() {
     // Check if we are in the homepage
     if (is_page_template('templates/page-home.php')) {
-        //Glide CSS
-	    wp_enqueue_style('glide',  get_template_directory_uri() . '/css/glide.core.css');
-	    wp_enqueue_style('glide-theme',  get_template_directory_uri() . '/css/glide.theme.css');
 	    //Home CSS
 	    wp_enqueue_style('home', get_template_directory_uri() . '/style/templates/home.css');
     }

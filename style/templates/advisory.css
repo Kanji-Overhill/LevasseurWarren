@@ -10,6 +10,7 @@
 }
 .advisory-1 img{
 	margin-bottom: 1rem;
+	width: 100%;
 }
 .advisory-1 ul li{
 	text-align: left;
@@ -22,4 +23,14 @@
 }
 .advisory-1 .col-md-6{
 	margin-bottom: 2rem;
+}
+.content-advisory{
+	border-radius: 6px;
+    height: 100%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23);
+    overflow: hidden;
+}
+.content-img-advisory{
+	max-height: 250px;
+	overflow: hidden;
 }

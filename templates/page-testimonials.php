@@ -8,7 +8,7 @@ get_header();
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-12 text-center">
-					<h1><?php _e("Business Coach Success Cases","levasseur-warren") ?></h1>
+					<h1><?php echo get_the_title(); ?></h1>
 				</div>
 			</div>
 		</div>
@@ -16,7 +16,15 @@ get_header();
 	<section class="testimonials-1">
 		<div class="container">
 			<div class="row">
-				<?php echo do_shortcode("[testimonial_loop]"); ?>
+
+				<div class="col-md-3">
+					<?php echo do_shortcode("[team_buttons]"); ?>
+				</div>
+				<div class="col-md-9">
+					<div class="row grid">
+						<?php echo do_shortcode("[testimonial_loop]"); ?>	
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>

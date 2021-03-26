@@ -208,31 +208,45 @@ function team_loop_shortcode() {
         'post_status' => 'publish',
         'order' => 'asc',
         'order_by' => 'date',
-		'posts_per_page' => 99
+        'posts_per_page' => -1,
     );
 
     $my_query = null;
     $my_query = new WP_query($args);
     if($my_query->have_posts()):
         while($my_query->have_posts()) : $my_query->the_post();
+            $colors = get_field('category');
         	echo '
-        		<div class="col-md-3 grid-item '.get_field('category').'">
+        		<div class="col-md-3 mb-4 grid-item ';
+            
+            if( $colors ):
+                foreach( $colors as $color ):
+                    echo $color.' ';
+                endforeach;
+            endif;
+            echo    '">
 					<div class="container-member">
 					<a href="'.get_permalink().'">
 						<div class="thumb-info-wrapper">
-							<img src="'.get_field('image').'" alt="" class="img-fluid">
+							<img src="'.get_field('image').'" alt="choaching" class="img-fluid">
 							<span class="thumb-info-title">
 								<span class="thumb-info-inner">'.get_the_title().'</span>
 							</span>
 						</div>
 					</a>
-						<p class="social-media">
-								<a href="'.get_field('facebook').'"><i class="fab fa-facebook-f"></i></a>
-								<a href="'.get_field('twitter').'"><i class="fab fa-twitter"></i></a>
-								<a href="'.get_field('linkedin').'"><i class="fab fa-linkedin-in"></i></a>
-							</p>
-						<p>'.get_field('position').'</p>
-						<p class="mb-4">'.get_field('position_2').'</p>
+						<p class="social-media text-center">';
+							if (get_field("facebook") != "") {
+								echo '<a href="'.get_field('facebook').'" target="_blank"><i class="fab fa-facebook-f"></i></a>';
+							}else{}
+							if (get_field("twitter") != "") {
+								echo '<a href="'.get_field('twitter').'" target="_blank"><i class="fab fa-twitter"></i></a>';
+							}else{}
+							if (get_field("linkedin") != "") {
+								echo '<a href="'.get_field('linkedin').'" target="_blank"><i class="fab fa-linkedin-in"></i></a>';
+							}else{}
+						echo '</p>
+						<p class="pl-3 pr-3">'.get_field('position').'</p>
+						<p class="mb-4 pl-3 pr-3">'.get_field('position_2').'</p>
 					</div>
 				</div>
         	';
@@ -243,6 +257,78 @@ function team_loop_shortcode() {
     endif;
 }
 
+/*Function Team buttons group*/
+function team_buttons_shortcode() {
+    $args = array(
+        'post_type' => 'team',
+        'post_status' => 'publish',
+        'order' => 'asc',
+        'order_by' => 'date',
+        'posts_per_page' => -1,
+    );
+
+    $my_query = null;
+    $my_query = new WP_query($args);
+    if($my_query->have_posts()):
+    	echo'<div class="button-group filter-button-group">
+        	<button data-filter="*">'; echo _e("Show All","levasseur-warren"); echo '</button>';
+        while($my_query->have_posts()) : $my_query->the_post();
+            if (get_field('testimonials') == "") {
+            
+            }else{
+                $title = str_replace(" ","_",get_the_title());
+                echo '
+                    <button data-filter=".'.$title.'">'.get_the_title().'</button>
+                ';
+            }
+        endwhile;
+        echo '</div>';
+        wp_reset_postdata();
+    else :
+    _e( 'Sorry, no posts matched your criteria.' );
+    endif;
+}
+
+function eliminar_tildes($cadena){
+
+    //Codificamos la cadena en formato utf8 en caso de que nos de errores
+    $cadena = utf8_encode($cadena);
+
+    //Ahora reemplazamos las letras
+    $cadena = str_replace(
+        array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä'),
+        array('a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A'),
+        $cadena
+    );
+
+    $cadena = str_replace(
+        array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'),
+        array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'),
+        $cadena );
+
+    $cadena = str_replace(
+        array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'),
+        array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'),
+        $cadena );
+
+    $cadena = str_replace(
+        array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'),
+        array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'),
+        $cadena );
+
+    $cadena = str_replace(
+        array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'),
+        array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'),
+        $cadena );
+
+    $cadena = str_replace(
+        array('ñ', 'Ñ', 'ç', 'Ç'),
+        array('n', 'N', 'c', 'C'),
+        $cadena
+    );
+
+    return $cadena;
+}
 /* Custom Post Type function for Areas content */
 function create_area_expertise() {
  
@@ -266,23 +352,53 @@ function areas_loop_shortcode() {
     $args = array(
         'post_type' => 'area',
         'post_status' => 'publish',
+        'posts_per_page' => -1,
     );
 
     $my_query = null;
     $my_query = new WP_query($args);
     if($my_query->have_posts()):
         while($my_query->have_posts()) : $my_query->the_post();
-        	echo '
-        		<div class="col-12 col-md-4 mb-4">
-					<div class="content-area">
-						<img src="'.get_field('image').'" alt="" class="img-fluid">
-						<div class="description-area">
-							<a href="" target="_blank"><h2>'.get_the_title().'</h2></a>
-						    '.get_field('content').'
-						</div>
-					</div>
-				</div>
-        	';
+            if (get_field('permalink') != "") {
+                $link = get_field('permalink');
+                echo '
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="content-area">
+                        <img src="'.get_field('image').'" alt="choaching" class="img-fluid">
+                        <div class="description-area">
+                            <a href="'.$link.'"><h2>'.get_the_title().'</h2></a>
+                            '.get_field('breadcrumb').'
+                        </div>
+                    </div>
+                </div>
+            ';
+            }elseif(get_field('content') != ""){
+                    $link = get_permalink();
+                    echo '
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="content-area">
+                        <img src="'.get_field('image').'" alt="choaching" class="img-fluid">
+                        <div class="description-area">
+                            <a href="'.$link.'"><h2>'.get_the_title().'</h2></a>
+                            '.get_field('breadcrumb').'
+                        </div>
+                    </div>
+                </div>
+            ';
+            }else{
+                $link = "";
+                echo '
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="content-area">
+                        <img src="'.get_field('image').'" alt="choaching" class="img-fluid">
+                        <div class="description-area">
+                            <h2>'.get_the_title().'</h2>
+                            '.get_field('breadcrumb').'
+                        </div>
+                    </div>
+                </div>
+            ';
+            }
         endwhile;
         wp_reset_postdata();
     else :
@@ -313,17 +429,20 @@ function testimonial_loop_shortcode() {
     $args = array(
         'post_type' => 'testimonial',
         'post_status' => 'publish',
+        'posts_per_page' => -1,
+        
     );
 
     $my_query = null;
     $my_query = new WP_query($args);
     if($my_query->have_posts()):
         while($my_query->have_posts()) : $my_query->the_post();
+        	$title = str_replace(" ","_",get_field('letter_of_recommendation'));
         	echo '
-        		<div class="col-12">
-					<p class="blue-color">
-						Letter of Recommendation : '.get_field('letter_of_recommendation').'
-					</p>
+        		<div class="col-md-12 grid-item '.$title.'">
+					<p class="blue-color">';
+					echo _e('Letter of Recommendation: ', 'levasseur-warren' ).get_field('letter_of_recommendation');
+					echo '</p>
 					<p>
 						<b>'.get_field('location').', '.get_field('date').'</b>
 					</p>
@@ -336,6 +455,32 @@ function testimonial_loop_shortcode() {
     _e( 'Sorry, no posts matched your criteria.' );
     endif;
 }
+
+function testimonial_slide_shortcode() {
+    $args = array(
+        'post_type' => 'testimonial',
+        'post_status' => 'publish',
+        'orderby'   => 'rand',
+        'posts_per_page' => 4,
+    );
+
+    $my_query = null;
+    $my_query = new WP_query($args);
+    if($my_query->have_posts()):
+        while($my_query->have_posts()) : $my_query->the_post();
+        	echo '
+        		<div class="glide__slide text-center">
+					'.get_field('description').'
+				</div>
+        	';
+        endwhile;
+        wp_reset_postdata();
+    else :
+    _e( 'Sorry, no posts matched your criteria.' );
+    endif;
+}
+
+
 
 function the_breadcrumb() {
 
@@ -392,7 +537,50 @@ function the_breadcrumb() {
         echo '</div>';
     }
 }
-add_theme_support( 'yoast-seo-breadcrumbs' );
+
+function related_post_shortcode( $categoria ){
+    $args = array(
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'category_name' => $categoria['categoria'],
+        'order' => 'ASC',
+        'order_by' => 'date',
+        'posts_per_page' => 3,
+        
+    );
+
+    $my_query = null;
+    $my_query = new WP_query($args);
+    if($my_query->have_posts()):
+        echo '
+            <div class="col-12 border-top">
+                    <h2 style="color: #0077C0" class="mt-4 mb-4">'; echo _e("Related Posts","levasseur-warren").'</h2>
+                </div>
+        ';
+        while($my_query->have_posts()) : $my_query->the_post();
+            $src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full', false );
+            $cadena = substr(get_the_content(), 0, 140);
+            echo '
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="content-area overlay-blue">
+                    <a href="'.get_permalink().'">
+                        <img src="'.$src[0].'" alt="choaching" class="img-fluid">
+                        <div class="description-area p-2 border">
+                            <h2 class="h4 mt-2 mb-2">'.get_the_title().'</h2>
+                            <p>'.$cadena.'...</p>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+            ';
+        endwhile;
+        wp_reset_postdata();
+    else :
+    
+    endif;
+}
+add_shortcode( 'related_post', 'related_post_shortcode' );
+
 // Add init Custom Post Type function for Team content 
 add_action( 'init', 'create_team_member' );
 
@@ -410,6 +598,12 @@ add_shortcode( 'areas_loop', 'areas_loop_shortcode' );
 
 /*Add Shortcode Testimonial Shortcode*/
 add_shortcode( 'testimonial_loop', 'testimonial_loop_shortcode' );
+
+/*Add Shortcode Testimonial Shortcode*/
+add_shortcode( 'team_buttons', 'team_buttons_shortcode' );
+
+/*Add Shortcode Testimonial Shortcode*/
+add_shortcode( 'testimonial_slide', 'testimonial_slide_shortcode' );
 
 
 require_once __DIR__ . '/theme-functions/index.php';

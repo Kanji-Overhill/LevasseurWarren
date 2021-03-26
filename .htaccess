@@ -1,0 +1,99 @@
+
+# BEGIN WordPress
+# Les directives (lignes) entre « BEGIN WordPress » et « END WordPress » sont générées
+# dynamiquement et doivent uniquement être modifiées via les filtres de WordPress.
+# Toute modification des directives situées entre ces marqueurs sera surchargée.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+#Redirects for SEO
+
+Redirect 301 /en/team/Dany-Bedard.php /en/team/Dany-Bedard
+Redirect 301 /fr/Equipe-coaching-affaires-Montreal.php /fr/Equipe-coaching-affaires-Montreal
+Redirect 301 /fr/Temoignages-succes-coaching-Montreal.php /fr/Temoignages-succes-coaching-Montreal
+Redirect 301 /fr/equipe/Hugo-Berger.php /fr/equipe/Hugo-Berger
+Redirect 301 /fr/equipe/Marc-Francois-Rouleau.php /fr/equipe/Marc-Francois-Rouleau
+Redirect 301 /en/team/Brigitte-St-Germain.php /en/team/Brigitte-St-Germain
+Redirect 301 /en/team/Thomas-Petyt.php /en/team/Thomas-Petyt
+Redirect 301 /fr/equipe/France-Cantin.php /fr/equipe/France-Cantin
+Redirect 301 /fr/index.php /fr/
+Redirect 301 /index.php /fr/
+Redirect 301 /en/team/Yves-Levasseur.php /en/team/Yves-Levasseur
+Redirect 301 /fr/equipe/Nathalie-Delmas.php /fr/equipe/Nathalie-Delmas
+Redirect 301 /en/Business-Coach-Team-Montreal.php /en/Business-Coach-Team-Montreal
+Redirect 301 /en/index.php /en/
+Redirect 301 /fr/equipe/Dany-Bedard.php /fr/equipe/Dany-Bedard
+Redirect 301 /fr/equipe/Martine-St-Onge.php /fr/equipe/Martine-St-Onge
+Redirect 301 /en/team/Jean-Boudreau.php /en/team/jean-boudreau
+Redirect 301 /fr/equipe/Jean-Boudreau.php /fr/equipe/jean-boudreault
+Redirect 301 /en/Business-Coaching-services-Montreal.php /en/Business-Coaching-services-Montreal
+Redirect 301 /fr/Services-coaching-affaires-Montreal.php /fr/Services-coaching-affaires-Montreal
+Redirect 301 /fr/Coaching-gestion-Montreal-Quebec.php /fr/Coaching-gestion-Montreal-Quebec
+Redirect 301 /fr/equipe/Patrick-Carle.php /fr/equipe/Patrick-Carle
+Redirect 301 /en/Business-Coaching-Success-Montreal.php /en/Business-Coaching-Success-Montreal
+Redirect 301 /en/team/Patrick-Carle.php /en/team/Patrick-Carle
+Redirect 301 /fr/equipe/Yves-Levasseur.php /fr/equipe/Yves-Levasseur
+Redirect 301 /fr/equipe/Louis-Lacoste.php /fr/equipe/Louis-Lacoste
+Redirect 301 /en/team/Jean-Claude-Silva.php /en/team/Jean-Claude-Silva
+Redirect 301 /fr/equipe/Thomas-Petyt.php /fr/equipe/Thomas-Petyt
+Redirect 301 /en/team/Nadine-Marcon.php /en/team/Nadine-Marcon
+Redirect 301 /fr/equipe/Nadine-Beaupre.php /fr/equipe/Nadine-Beaupre
+Redirect 301 /fr/equipe/Nadine-Marcon.php /fr/equipe/Nadine-Marcon
+Redirect 301 /fr/Services-Conseil-Consultatif.php /fr/Services-Conseil-Consultatif
+Redirect 301 /en/team/Nathalie-Marceau.php /en/team/Nathalie-Marceau
+Redirect 301 /fr/equipe/Marjorie-Poitras.php /fr/equipe/Marjorie-Poitras
+Redirect 301 /fr/equipe/Nathalie-Marceau.php /fr/equipe/Nathalie-Marceau
+Redirect 301 /en/Management-coach-Montreal-Quebec.php /en/Management-coach-Montreal-Quebec
+Redirect 301 /fr/equipe/Genevieve-Dicaire.php /fr/equipe/Genevieve-Dicaire
+Redirect 301 /en/team/Marjorie-Poitras.php /en/team/Marjorie-Poitras
+Redirect 301 /en/team/Nadine-Beaupre.php /en/team/Nadine-Beaupre
+Redirect 301 /en/team/France-Cantin.php /en/team/France-Cantin
+Redirect 301 /fr/equipe/Jean-Claude-Silva.php /fr/equipe/Jean-Claude-Silva
+Redirect 301 /en/team/Genevieve-Dicaire.php /en/team/Genevieve-Dicaire
+Redirect 301 /en/team/Terry-Lipovsk.php /en/team/Terry-Lipovsk
+Redirect 301 /fr/equipe/Pat-Lipovski.php /fr/equipe/Pat-Lipovski
+Redirect 301 /fr/equipe/Stephane-Coulier.php /fr/equipe/Stephane-Coulier
+Redirect 301 /en/advisory-board-services.php /en/advisory-board-services
+Redirect 301 /en/team/Marc-Francois-Rouleau.php /en/team/Marc-Francois-Rouleau
+Redirect 301 /en/team/Stephane-Coulier.php /en/team/Stephane-Coulier
+Redirect 301 /fr/equipe/Terry-Lipovsk.php /fr/equipe/Terry-Lipovski
+Redirect 301 /en/team/Hugo-Berger.php /en/team/Hugo-Berger
+Redirect 301 /fr/equipe/Brigitte-St-Germain.php /fr/equipe/Brigitte-St-Germain
+Redirect 301 /en/team/Martine-St-Onge.php /en/team/Martine-St-Onge
+Redirect 301 /en/team/Louis-Lacoste.php /en/team/Louis-Lacoste
+Redirect 301 /en/team/Nathalie-Delmas.php /en/team/Nathalie-Delmas
+Redirect 301 /landing/fr/virage-digital.html /fr/area/transformation-numerique
+Redirect 301 /landing/fr/telework-fr.html /fr/area/telework
+Redirect 301 /fr/conseils-stratégiques-marketing-ventes-finances /fr/area/conseils-strategiques-marketing-ventes-finances
+Redirect 301 /fr/formation-en-gestion /fr/area/formation
+Redirect 301 /fr/equipe/Antoine-Theberge.php /fr/equipe/antoine-theberge
+Redirect 301 /fr/equipe/Maude-Desharnais.php /fr/equipe/maude-desharnais-coach-de-gestion-formatrice/
+Redirect 301 /fr/equipe/Louis-Lacoste.php /fr/equipe-coaching-affaires-montreal
+Redirect 301 /fr/politique-de-confidentialite.php /fr/equipe-coaching-affaires-montreal
+Redirect 301 /fr/formation-leadership-Montreal-Québec /fr/area/leadership
+Redirect 301 /fr/formation-en-gestion /fr/area/formation
+Redirect 301 /fr/equipe/Danny-Blouin.php /fr/equipe/danny-blouin
+Redirect 301 /fr/equipe/Denis-Carrier.php /fr/equipe/consultant-formateur-agree-en-gestion-plannification-et-croissance
+Redirect 301 /fr/equipe/Jean-Pierre-Deschenes.php /fr/equipe/jean-pierre-deschenes-consultant-senior-en-rh
+Redirect 301 /en/Business-Coaching-Success-Montreal.php /en/
+Redirect 301 /en/team/Pat-Lipovski.php /en/team/pat-lipovski/
+Redirect 301 /Coaching-gestion-Quebec.php /fr/services-coaching-affaires-montreal
+Redirect 301 /Equipe-coaching-affaires-Quebec.php /fr/services-coaching-affaires-montreal
+Redirect 301 /Temoignages-succes-coaching-Quebec.php /fr/services-coaching-affaires-montreal/
+Redirect 301 
+Redirect 301
+Redirect 301
+Redirect 301
+Redirect 301
+
+
+
+
+</IfModule>
+# END WordPress

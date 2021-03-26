@@ -16,3 +16,19 @@
 	padding-top: 2rem;
 	padding-bottom: 2rem;
 }
+.button-group{
+	text-align: left;
+	margin-bottom: 5rem;
+	margin-top: 2rem;
+}
+.button-group button{
+	background: transparent;
+	border: none;
+	display: block;
+	cursor: pointer;
+	border-bottom: 2px solid transparent;
+}
+.button-group button.active{
+	border-bottom: 2px solid #0077b7;
+	color: #0077b7;
+}

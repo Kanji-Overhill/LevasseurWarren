@@ -36,14 +36,16 @@ p {
 .scroll-header{
 	background: #212529 !important
 }
-
+h2{
+	color: #0077C0;
+}
 .header-1{
 	background-image: url(../resources/coaching-affaires.jpg);
 	background-size: cover;
 	background-position: center;
 }
 .header-1 .row{
-	min-height: 45vh;
+	    padding: 150px 0 100px;
 }
 .header-1 h1{
 	color: #fff;
@@ -72,6 +74,18 @@ p {
 	left: 0;
 	top: 0;
 	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+.cover-black-w{
+	position: relative;
+}
+.cover-black-w:before{
+	content: '';
+	position: absolute;
+	left: 15px;
+	top: 0;
+	width: calc(100% - 30px);
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.6);
 }
@@ -173,7 +187,6 @@ p {
 .back-blue{
 	background: #164E71;
 	min-height: auto;
-	padding: 100px 0 50px 0;
 }
 .back-blue h1{
 	font-weight: normal;
@@ -187,4 +200,157 @@ p {
 .wpcf7-form input::placeholder{
 	color: #777;
 	-
+}
+.testimonials-1{
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+.testimonials-1 p{
+	color: #000
+}
+.testimonials-1 p.blue-color{
+	color: #3472F7;
+	font-size: 1.2rem;
+}
+.testimonials-1 .col-12{
+	border-bottom: 1px solid #EEEEEE;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+/*Glide Styles*/
+.glide__arrow {
+    position: absolute!important;
+    display: block!important;
+    top: 100%!important;
+    z-index: 2!important;
+    color: white!important;
+    text-transform: uppercase!important;
+    padding: 9px 12px!important;
+    background-color: transparent!important;
+    border: none!important;
+    border-radius: 4px!important;
+    box-shadow: none!important;
+    text-shadow: none!important;
+    opacity: 1!important;
+    cursor: pointer!important;
+    transition: opacity 150ms ease, border 300ms ease-in-out!important;
+    transform: translateY(-50%)!important;
+    line-height: 1!important;
+}
+.glide__slide{
+	max-height: 100%!important;
+}
+.glide__arrow img{
+	max-width: 30px!important;
+}
+.glide__arrow--right {
+    right: calc(50% - 45px)!important;
+}
+.glide__arrow--left {
+    left: calc(50% - 45px)!important;
+}
+.glide__slide p{
+	color: #000!important;
+}
+.glide__arrow img{
+	border: none!important;
+}
+.menu-toggle {
+    display: none;
+    border: 0px solid;
+    border-radius: 3px;
+    background: transparent;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1;
+}
+.header-areas{
+    background-size: cover;
+    position: relative;
+    background-position: center;
+}
+.header-areas:before{
+	content: '';
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, .5);
+	z-index: 2;
+	position: absolute;
+}
+.header-areas .container{
+	z-index: 3;
+	position: relative;
+}
+.news-item__content.news-item ul{
+	margin-left: 0;
+}
+.button-contact{
+	position: absolute;
+	top: calc(50% - 16.5px);
+    right: calc(50% - 51.5px);
+}
+.widget_categories ul{
+	margin-left: 0;
+    list-style: none;
+    padding-left: .5rem;
+}
+.widget_categories ul li:nth-child(2n) a{
+	background-color: #164E71;
+	color: #fff;
+}
+.widget_categories ul li a{
+	color: #000;
+	padding: .5rem;
+	display: inline-block;
+}
+.overlay-blue:before{
+	position: absolute;
+	transition: .3s;
+	background: rgba(0, 119, 192, 0.6);
+	background-image: url(https://levasseurwarren.ca/wp-content/uploads/2021/02/increase-1.png);
+	    background-size: initial;
+    background-repeat: no-repeat;
+	background-position: center;
+	content: '';
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	pointer-events:none;
+}
+.overlay-blue:hover:before{
+	left: 0;
+}
+@media screen and (max-width: 800px){
+	.linkedin-header {
+	    display: block;
+	    position: absolute;
+	        right: -30px!important;
+    top: -15px!important;
+	}
+	.main-navigation li a {
+	    font-size: .7rem;
+	}
+}
+@media screen and (max-width: 500px){
+	.cover-black-w{
+		display: none;
+	}
+	#masthead{
+		background: #212529 !important;
+	}
+    .site-branding{
+        width: 75%
+    }
+    .menu-toggle{
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 30px;
+        max-width: 50px;
+        padding: 0;
+    }
 }

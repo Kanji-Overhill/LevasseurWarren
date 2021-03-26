@@ -8,7 +8,7 @@ get_header();
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-12 text-center">
-					<h1><?php _e("Services de coaching d'affaires Montréal","levasseur-warren") ?></h1>
+					<h1><?php echo get_the_title(); ?></h1>
 				</div>
 			</div>
 		</div>
@@ -16,6 +16,7 @@ get_header();
 	<section class="areas-1">
 		<div class="container">
 			<div class="row">
+
 				<?php echo do_shortcode("[areas_loop]"); ?>
 			</div>
 		</div>

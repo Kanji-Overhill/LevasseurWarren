@@ -1,3 +1,4 @@
+
 /* Fix header on scroll */
 let scrollpos = window.scrollY
 const header = document.querySelector("header")
@@ -13,3 +14,16 @@ window.addEventListener('scroll', function() {
   else { remove_class_on_scroll() }
     
 })
+/* Slider setup */
+var sliders = document.querySelectorAll('.glide');
+
+for (var i = 0; i < sliders.length; i++) {
+  var glide = new Glide(sliders[i], {
+    gap: 15,
+  });
+  
+  glide.mount();
+}
+
+
+

@@ -11,10 +11,10 @@
 
 ?>
 
-	<footer class="footer-1">
+	<footer class="footer-1" id="footer">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-6 col-12 formulario">
+				<div class="col-md-7 col-lg-6 col-12 formulario">
 					<h2><?php _e("Contact Us","levasseur-warren") ?></h2>
 					<?php
 						if (get_locale() == 'en_US') {
@@ -24,24 +24,15 @@
 						}
 					?>
 				</div>
-				<div class="col-md-6 col-12 contact-footer">
+				<div class="col-md-5 col-lg-6 col-12 contact-footer">
 					<div class="row">
 						<div class="col-12">
-							<h2><?php _e("Offices","levasseur-warren") ?></h2>
 							<h3>MONTRÉAL</h3>
 							<ul>
 								<li>514 703-6746</li>
 								<li><a href="mailto:info@levasseurwarren.ca">info@levasseurwarren.ca</a></li>
 							</ul>
-						</div>
-						<div class="col-12">
-							<h3>QUÉBEC</h3>
-							<p>Louis Lacoste, Vice-Président Ventes & Marketing</p>
-							<ul>
-								<li>418 407-4621</li>
-								<li><a href="mailto:info@levasseurwarren.ca">info@levasseurwarren.ca</a></li>
-							</ul>
-							<p class="copyright">© 2020 Levasseur Warren Coaching Inc. All Rights Reserved.</p>
+							<a class="linkedin linkedin-footer" target="_blank" href="https://www.linkedin.com/company/levasseur-warren-coaching-inc/"><img src="<?php echo get_template_directory_uri();?>/resources/linkedin.svg" alt=""></a>
 						</div>
 					</div>
 				</div>

@@ -55,6 +55,20 @@ function load_homepage_scripts() {
         // --
         wp_enqueue_script('teamjs');
     }
+    if (is_page_template('templates/page-testimonials.php')) {
+        // --
+        wp_register_script('isotipe', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js');
+        // --
+        wp_enqueue_script('isotipe');
+
+        wp_register_script('awesome', 'https://kit.fontawesome.com/ab58011517.js');
+        // --
+        wp_enqueue_script('awesome');
+          // --
+        wp_register_script('teamjs', get_template_directory_uri() . '/js/templates/team.js', null, '1.0.0', true);
+        // --
+        wp_enqueue_script('teamjs');
+    }
     
 }
 add_action('wp_enqueue_scripts', 'load_homepage_scripts');
